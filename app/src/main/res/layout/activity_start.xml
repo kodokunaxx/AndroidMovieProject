@@ -34,7 +34,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btnSignIn"
+            android:id="@+id/btnSignInStart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_button_login"
@@ -42,7 +42,7 @@
             android:textColor="#ffff" />
 
         <Button
-            android:id="@+id/btnSignUp"
+            android:id="@+id/btnSignUpStart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.example.movieapp.R;
 
 public class StartActivity extends Activity {
-    Button signInBt,signUpBt;
+    Button btnSignInStart,btnSignUpStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +24,8 @@ public class StartActivity extends Activity {
     }
 
     private void setSignUp() {
-        signUpBt = findViewById(R.id.btnSignUp);
-        signUpBt.setOnClickListener(new View.OnClickListener() {
+        btnSignUpStart = findViewById(R.id.btnSignUpStart);
+        btnSignUpStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(StartActivity.this,SignUpActivity.class);
@@ -35,8 +35,8 @@ public class StartActivity extends Activity {
     }
 
     public void setSignIn(){
-        signInBt = findViewById(R.id.btnSignIn);
-        signInBt.setOnClickListener(new View.OnClickListener() {
+        btnSignInStart = findViewById(R.id.btnSignInStart);
+        btnSignInStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(StartActivity.this, LoginActivity.class);

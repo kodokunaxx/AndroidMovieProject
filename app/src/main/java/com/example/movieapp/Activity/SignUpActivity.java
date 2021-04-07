@@ -25,12 +25,13 @@ public class SignUpActivity extends Activity {
     EditText edtUsernameSU, edtNameSU, edtEmailSU, edtPasswordSU, edtRePasswordSU;
     CheckBox cbCheckSU;
     DBMangager dbMangager;
-    Boolean status = false;
+    boolean status = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_sign_up);
+
         edtUsernameSU = findViewById(R.id.edtUsernameSU);
         edtNameSU = findViewById(R.id.edtNameSU);
         edtEmailSU = findViewById(R.id.edtEmailSU);
@@ -72,7 +73,7 @@ public class SignUpActivity extends Activity {
                             status = false;
                             Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                             startActivity(intent);
-
+                            btnSignUpSU.stopAnimation(TransitionButton.StopAnimationStyle.SHAKE, null);
                         }else {
                             btnSignUpSU.stopAnimation(TransitionButton.StopAnimationStyle.SHAKE, null);
                         }

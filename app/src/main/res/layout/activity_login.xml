@@ -36,7 +36,8 @@
         android:background="@drawable/background_edit_text">
 
         <EditText
-            android:id="@+id/usernamtv"
+            android:id="@+id/edtUsernameLg"
+            android:singleLine="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
@@ -56,8 +57,10 @@
         android:background="@drawable/background_edit_text">
 
         <EditText
-            android:id="@+id/passwordtv"
-
+            android:id="@+id/edtPasswordLg"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
@@ -70,7 +73,7 @@
 
 
     <com.royrodriguez.transitionbutton.TransitionButton
-        android:id="@+id/login"
+        android:id="@+id/btnLoginLg"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -144,6 +147,7 @@
             android:textColor="#ffff" />
 
         <TextView
+            android:id="@+id/txtSignUpLg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"

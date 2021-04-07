@@ -2,6 +2,8 @@ package com.example.movieapp.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -36,6 +38,19 @@ public class DBMangager extends SQLiteOpenHelper {
         database.insert("User",null, contentValues);
     }
 
+    public boolean checkLogin(User user){
+        String querySql = " select * from User where username = " + user.getUsername()+ " and password = " + user.getPassword();
+        SQLiteDatabase database = getWritableDatabase();
+        try {
+            Cursor cursor = database.rawQuery(querySql, null);
+            if(cursor.getCount() > 0){
+                return true;
+            }
+        }catch (SQLException e){
+
+        }
+        return false;
+    }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
