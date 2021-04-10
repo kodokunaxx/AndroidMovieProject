@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Json {
+
     public List<Movie> JsonMovie(String jsonMovie) throws JSONException{
         List<Movie> movieList = new ArrayList<>();
         JSONObject jsonMovieObj = new JSONObject(jsonMovie);
@@ -20,5 +21,7 @@ public class Json {
         }
         return movieList;
     }
+
+
 }
 

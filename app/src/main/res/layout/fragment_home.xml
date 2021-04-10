@@ -145,7 +145,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
-                    android:text="Phim siêu anh hùng"
+                    android:text="Đang chiếu rạp"
                     android:textColor="#ffff"
                     android:textSize="20dp" />
 
@@ -161,7 +161,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
-                    android:text="Phi vụ trộm thế kỉ"
+                    android:text="Sắp chiếu"
                     android:textColor="#ffff"
                     android:textSize="20dp" />
 
@@ -172,19 +172,12 @@
                     android:layout_marginTop="8dp"
                     android:background="#141516" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/main_recycler"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="8dp"
-                    android:background="#141516" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
-                    android:text="Chương trình chuyền hình"
+                    android:text="Hàng đầu"
                     android:textColor="#ffff"
                     android:textSize="20dp" />
 
@@ -200,7 +193,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
-                    android:text="Phim dài tập"
+                    android:text="Phổ biến"
                     android:textColor="#ffff"
                     android:textSize="20dp" />
 

@@ -36,6 +36,7 @@
 
         <EditText
             android:id="@+id/edtUsernameSU"
+            android:singleLine="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
@@ -56,6 +57,7 @@
 
         <EditText
             android:id="@+id/edtNameSU"
+            android:singleLine="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
@@ -76,6 +78,7 @@
 
         <EditText
             android:id="@+id/edtEmailSU"
+            android:singleLine="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
@@ -96,6 +99,8 @@
 
         <EditText
             android:id="@+id/edtPasswordSU"
+            android:singleLine="true"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
@@ -116,12 +121,15 @@
 
         <EditText
             android:id="@+id/edtRePasswordSU"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:backgroundTint="#00FFFFFF"
             android:hint="Re-Type Password"
+            android:singleLine="true"
             android:textColorHint="#ffff" />
 
     </LinearLayout>

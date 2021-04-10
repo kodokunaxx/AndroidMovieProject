@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
 
@@ -22,6 +24,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.movieapp.Adapter.BannerAdapter;
+import com.example.movieapp.Adapter.MovieHorizontalRecyclerviewAdapter;
 import com.example.movieapp.Json.Json;
 import com.example.movieapp.Model.Movie;
 import com.example.movieapp.R;
@@ -37,6 +40,8 @@ public class HomeFragment extends Fragment {
     NestedScrollView nestedScrollView;
     ImageView searchImg, notification;
     SwipeRefreshLayout swipeRefreshLayout;
+    RecyclerView recyclerview1, recyclerview2, recyclerview3, recyclerview4;
+    MovieHorizontalRecyclerviewAdapter movieHorizontalRecyclerviewAdapter;
 
     View view;
     List<Movie> movieList;
@@ -75,6 +80,9 @@ public class HomeFragment extends Fragment {
 
         this.setrefresh();
         viewBanner();
+        for (int i = 0; i<4; i++){
+            viewMovieOnRecycle(i);
+        }
 
         return view;
     }
@@ -110,10 +118,87 @@ public class HomeFragment extends Fragment {
 
     }
 
+    private void viewMovieOnRecycle(int temp) {
+        RequestQueue requestQueue = Volley.newRequestQueue(view.getContext());
+        String categoryArr[] = {"now_playing", "upcoming", "top_rated", "popular"};
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://api.themoviedb.org/3/movie/"+ categoryArr[temp] +"?api_key=9ed4a1f097a3e78ed51133843d2156ea&language=vi&page=1",
+                new Response.Listener<String>() {
+
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            List<Movie> movieDetailList = new ArrayList<>();
+                            movieDetailList = json.JsonMovie(response);
+
+                            switch (temp){
+                                case 0:
+                                    setMovieListHorizontalRecyclerviewAdapter1(movieDetailList);
+                                    break;
+                                case 1:
+                                    setMovieListHorizontalRecyclerviewAdapter2(movieDetailList);
+                                    break;
+                                case 2:
+                                    setMovieListHorizontalRecyclerviewAdapter3(movieDetailList);
+                                    break;
+                                case 3:
+                                    setMovieListHorizontalRecyclerviewAdapter4(movieDetailList);
+                                    break;
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(view.getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
+                Log.d("AAA", "Lỗi\n" + error.toString());
+            }
+        });
+        requestQueue.add(stringRequest);
+
+
+    }
+
     private void setBannerMoviesPagerAdapter(List<Movie> bannerMoviesList) {
         bannerAdapter = new BannerAdapter(view.getContext(), bannerMoviesList);
         bannerViewPager.setAdapter(bannerAdapter);
 
+    }
+
+    private void setMovieListHorizontalRecyclerviewAdapter1(List<Movie> movieListHorizontal) {
+        recyclerview1 = view.findViewById(R.id.recyclerview1);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(view.getContext(), RecyclerView.HORIZONTAL, false);
+        recyclerview1.setLayoutManager(layoutManager);
+        movieHorizontalRecyclerviewAdapter = new MovieHorizontalRecyclerviewAdapter(view.getContext(), movieListHorizontal);
+        recyclerview1.setAdapter(movieHorizontalRecyclerviewAdapter);
+    }
+
+    private void setMovieListHorizontalRecyclerviewAdapter2(List<Movie> movieListHorizontal) {
+        recyclerview2 = view.findViewById(R.id.recyclerview2);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(view.getContext(), RecyclerView.HORIZONTAL, false);
+        recyclerview2.setLayoutManager(layoutManager);
+        movieHorizontalRecyclerviewAdapter = new MovieHorizontalRecyclerviewAdapter(view.getContext(), movieListHorizontal);
+        recyclerview2.setAdapter(movieHorizontalRecyclerviewAdapter);
+    }
+
+    private void setMovieListHorizontalRecyclerviewAdapter3(List<Movie> movieListHorizontal) {
+        recyclerview3 = view.findViewById(R.id.recyclerview3);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(view.getContext(), RecyclerView.HORIZONTAL, false);
+        recyclerview3.setLayoutManager(layoutManager);
+        movieHorizontalRecyclerviewAdapter = new MovieHorizontalRecyclerviewAdapter(view.getContext(), movieListHorizontal);
+        recyclerview3.setAdapter(movieHorizontalRecyclerviewAdapter);
+    }
+
+    private void setMovieListHorizontalRecyclerviewAdapter4(List<Movie> movieListHorizontal) {
+        recyclerview4 = view.findViewById(R.id.recyclerview4);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(view.getContext(), RecyclerView.HORIZONTAL, false);
+        recyclerview4.setLayoutManager(layoutManager);
+        movieHorizontalRecyclerviewAdapter = new MovieHorizontalRecyclerviewAdapter(view.getContext(), movieListHorizontal);
+        recyclerview4.setAdapter(movieHorizontalRecyclerviewAdapter);
     }
 
     private void setrefresh() {
