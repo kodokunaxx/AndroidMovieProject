@@ -22,6 +22,7 @@ public class LoginActivity extends Activity {
     TextView txtSignUpLg;
     DBMangager dbMangager;
     boolean status;
+    User user = new User();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,8 @@ public class LoginActivity extends Activity {
                         if(status == true) {
                             status = false;
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            intent.putExtra("UserObj", user);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                             startActivity(intent);
                             btnLoginLg.stopAnimation(TransitionButton.StopAnimationStyle.SHAKE, null);
                         }else {
