@@ -11,10 +11,6 @@
         android:title="Movie" />
 
     <item
-        android:id="@+id/tvShowItem"
-        android:icon="@drawable/tv_icon"
-        android:title="TvShow" />
-    <item
         android:id="@+id/historyItem"
         android:icon="@drawable/history_white"
         android:title="Đã xem" />

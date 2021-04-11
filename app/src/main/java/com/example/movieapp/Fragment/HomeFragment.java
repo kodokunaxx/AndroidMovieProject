@@ -24,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.movieapp.Activity.SearchActivity;
 import com.example.movieapp.Adapter.BannerAdapter;
 import com.example.movieapp.Adapter.MovieHorizontalRecyclerviewAdapter;
 import com.example.movieapp.Json.Json;
@@ -84,18 +85,19 @@ public class HomeFragment extends Fragment {
         for (int i = 0; i<4; i++){
             viewMovieOnRecycle(i);
         }
-
+        setClickSearch();
         return view;
     }
 
-//    private void setClickSearch(){
-//        searchImg.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(view.getContext(),)
-//            }
-//        });
-//    }
+    private void setClickSearch(){
+        searchImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getContext(), SearchActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 
     private void viewBanner() {
         RequestQueue requestQueue = Volley.newRequestQueue(view.getContext());

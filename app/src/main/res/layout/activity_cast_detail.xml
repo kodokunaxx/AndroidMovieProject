@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#101010"
+    android:orientation="vertical"
+    tools:context=".Activity.CastDetailActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#101010"
+            android:orientation="vertical">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#101010"
+                    app:cardCornerRadius="10dp">
+
+                    <ImageView
+                        android:id="@+id/castDetailProfile"
+                        android:layout_width="170dp"
+                        android:layout_height="230dp"
+                        android:scaleType="centerCrop"
+
+                        />
+                </androidx.cardview.widget.CardView>
+
+
+                // thông tin diễn viên
+
+                <LinearLayout
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tên: "
+                            android:textColor="#ffff"
+                            android:textSize="17dp" />
+
+                        <TextView
+                            android:id="@+id/castDetailName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginRight="46dp"
+                            android:layout_marginBottom="-2dp"
+                            android:text="Đỗ Mạnh Hà"
+                            android:textColor="#ffff"
+                            android:textSize="17dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="Ngày sinh: "
+                            android:textColor="#ffff"
+                            android:textSize="17dp" />
+
+                        <TextView
+                            android:id="@+id/castDetailDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginTop="20dp"
+                            android:text="14/12/1999"
+                            android:textColor="#ffff"
+                            android:textSize="17dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="Giới tính: "
+                            android:textColor="#ffff"
+                            android:textSize="17dp" />
+
+                        <TextView
+                            android:id="@+id/castDetailGender"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginTop="20dp"
+                            android:text="Nam"
+                            android:textColor="#ffff"
+                            android:textSize="17dp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Quê quán: "
+                        android:textColor="#ffff"
+                        android:textSize="17dp" />
+
+                    <TextView
+                        android:id="@+id/castDetailPlace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="22dp"
+                        android:layout_marginBottom="-1dp"
+                        android:text="Hành tinh diệu kỳ"
+                        android:textColor="#ffff"
+                        android:textSize="17dp" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:orientation="vertical">
+                // tiểu sử
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:text="Tiểu sử"
+                    android:textColor="#ffff"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/castDetailStory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Đẹp trai, học giỏi, pro"
+                    android:textColor="#ffff" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="Các phim đã tham gia"
+                    android:textColor="#ffff"
+                    android:textSize="20dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/castMovieJoin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

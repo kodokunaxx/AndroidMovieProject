@@ -18,8 +18,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.example.movieapp.Adapter.CastHorizontalRecycleViewAdapter;
 import com.example.movieapp.Adapter.MovieHorizontalRecyclerviewAdapter;
 import com.example.movieapp.Json.Json;
+import com.example.movieapp.Model.Cast;
 import com.example.movieapp.Model.Movie;
 import com.example.movieapp.Model.MovieDetail;
 import com.example.movieapp.R;
@@ -35,6 +37,7 @@ public class MovieDetailActivity extends Activity {
     Button btnPlay;
     RecyclerView movieCastRecycleView, movieRelatedRecycleView;
     MovieHorizontalRecyclerviewAdapter movieHorizontalRecyclerviewAdapter;
+    CastHorizontalRecycleViewAdapter castHorizontalRecycleViewAdapter;
 
     Json json = new Json();
 
@@ -65,6 +68,7 @@ public class MovieDetailActivity extends Activity {
         Glide.with(this).load(iBackdrop).into(movieDetailImg);
         setMovieDetail(iIdMovie);
         viewRelatedMovie(iIdMovie);
+        viewCastMovie(iIdMovie);
     }
 
     private void setMovieDetail(int idMovie){
@@ -122,11 +126,42 @@ public class MovieDetailActivity extends Activity {
 
     }
 
+    private void viewCastMovie(int idMovie){
+        RequestQueue requestQueue = Volley.newRequestQueue(MovieDetailActivity.this);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://api.themoviedb.org/3/movie/"+ idMovie +"/credits?api_key=9ed4a1f097a3e78ed51133843d2156ea&language=vi",
+                new Response.Listener<String>() {
+
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            List<Cast> castList = new ArrayList<>();
+                            castList = json.JsonCast(response);
+                            setCastListHorizontalRecyclerviewAdapter(castList);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        });
+        requestQueue.add(stringRequest);
+    }
+
     private void setMovieListHorizontalRecyclerviewAdapter(List<Movie> movieListHorizontal) {
-        movieRelatedRecycleView = findViewById(R.id.movieRelatedRecycleView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
         movieRelatedRecycleView.setLayoutManager(layoutManager);
         movieHorizontalRecyclerviewAdapter = new MovieHorizontalRecyclerviewAdapter(this, movieListHorizontal);
         movieRelatedRecycleView.setAdapter(movieHorizontalRecyclerviewAdapter);
+    }
+
+    private void setCastListHorizontalRecyclerviewAdapter(List<Cast> castListHorizontal) {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+        movieCastRecycleView.setLayoutManager(layoutManager);
+        castHorizontalRecycleViewAdapter = new CastHorizontalRecycleViewAdapter(this, castListHorizontal);
+        movieCastRecycleView.setAdapter(castHorizontalRecycleViewAdapter);
     }
 }
