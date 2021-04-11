@@ -1,5 +1,6 @@
 package com.example.movieapp.Fragment;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 
@@ -87,6 +88,15 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+//    private void setClickSearch(){
+//        searchImg.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(view.getContext(),)
+//            }
+//        });
+//    }
+
     private void viewBanner() {
         RequestQueue requestQueue = Volley.newRequestQueue(view.getContext());
 
@@ -109,8 +119,6 @@ public class HomeFragment extends Fragment {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(view.getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
-                Log.d("AAA", "Lỗi\n" + error.toString());
             }
         });
         requestQueue.add(stringRequest);
@@ -154,8 +162,6 @@ public class HomeFragment extends Fragment {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(view.getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
-                Log.d("AAA", "Lỗi\n" + error.toString());
             }
         });
         requestQueue.add(stringRequest);
@@ -206,6 +212,7 @@ public class HomeFragment extends Fragment {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                viewBanner();
                 swipeRefreshLayout.setRefreshing(false);
             }
         });

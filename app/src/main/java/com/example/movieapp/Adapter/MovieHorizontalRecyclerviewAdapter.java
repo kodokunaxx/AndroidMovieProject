@@ -1,6 +1,7 @@
 package com.example.movieapp.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.movieapp.Activity.MovieDetailActivity;
 import com.example.movieapp.Model.Movie;
 import com.example.movieapp.R;
 
@@ -35,6 +37,19 @@ public class MovieHorizontalRecyclerviewAdapter extends RecyclerView.Adapter<Mov
     public void onBindViewHolder(@NonNull MainViewHoldel holder, int position) {
         Glide.with(context).load(movieList.get(position).getPoster()).into(holder.moviePoster);
         holder.movieTitle.setText(movieList.get(position).getTitle());
+
+        holder.moviePoster.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //truyền id sang MovieDetailActivity để restAPI
+                Intent intent = null ;
+                intent= new Intent(context, MovieDetailActivity.class);
+                intent.putExtra("id",movieList.get(position).getId());
+                intent.putExtra("backdrop",movieList.get(position).getBackdrop());
+
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

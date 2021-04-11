@@ -13,7 +13,9 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
+import com.example.movieapp.Activity.MovieDetailActivity;
 import com.example.movieapp.Model.Movie;
+import com.example.movieapp.Model.MovieDetail;
 import com.example.movieapp.R;
 
 import java.util.List;
@@ -21,16 +23,16 @@ import java.util.List;
 public class BannerAdapter extends PagerAdapter {
 
     Context context;
-    List<Movie> movies;
+    List<Movie> movieList;
 
     public BannerAdapter(Context context, List<Movie> movies){
         this.context = context;
-        this.movies = movies;
+        this.movieList = movies;
     }
 
     @Override
     public int getCount() {
-        return movies.size();
+        return movieList.size();
     }
 
     @Override
@@ -48,31 +50,22 @@ public class BannerAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         View view = LayoutInflater.from(context).inflate(R.layout.banner_movie_layout, null);
         ImageView bannerImage= view.findViewById(R.id.Banner_image);
-        Glide.with(context).load(movies.get(position).getBackdrop()).into(bannerImage);
+        Glide.with(context).load(movieList.get(position).getBackdrop()).into(bannerImage);
         container.addView(view);
 
-//        bannerImage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                /// điều kiện giá trị của biến tvshow để lọc tv và movie
-//                Intent intent = null ;
-//                if(categoryItems.get(position).getTvshow()!=null){
-//                    intent= new Intent(context, TvShowDetail.class);
-//                    intent.putExtra("tvshow",categoryItems.get(position).getTvshow());
-//                }else{ intent = new Intent(context, MovieDetails.class); }
-//
-//                /// điều kiện giá trị của biến tvshow để lọc tv và movie
-//                intent.putExtra("MovienameID", categoryItems.get(position).getId());
-//                intent.putExtra("Moviename", categoryItems.get(position).getMovieName());
-//                intent.putExtra("MovieImageUrl", categoryItems.get(position).getImageUrl());
-//                intent.putExtra("Backdrop",categoryItems.get(position).getBackdrop());
-//                context.startActivity(intent);
-//
-//            }
-//        });
+        bannerImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //truyền id sang MovieDetailActivity để restAPI
+                Intent intent = null ;
+                    intent= new Intent(context, MovieDetailActivity.class);
+                    intent.putExtra("id",movieList.get(position).getId());
+                    intent.putExtra("backdrop", movieList.get(position).getBackdrop());
 
+                context.startActivity(intent);
 
-
+            }
+        });
 
         return view;
     }
