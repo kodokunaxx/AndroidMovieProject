@@ -51,10 +51,10 @@ public class SignUpActivity extends Activity {
                 Random random = new Random();
                 int id = random.nextInt(1000);
                 if(!edtPasswordSU.getText().toString().equals(edtRePasswordSU.getText().toString())) {
-                    Toast.makeText(SignUpActivity.this, "Password phải giống nhau!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this, "Hãy xác thực lại mật khẩu!", Toast.LENGTH_SHORT).show();
                     status = false;
                 }else if(cbCheckSU.isChecked() == false){
-                    Toast.makeText(SignUpActivity.this, "Chấp nhận điều khoản!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this, "Vui lòng chấp nhận điều khoản!", Toast.LENGTH_SHORT).show();
                     status = false;
                 }else {
                     dbMangager.addUser(new User(id, edtUsernameSU.getText().toString(), edtPasswordSU.getText().toString(), edtNameSU.getText().toString(), 0, edtEmailSU.getText().toString(), "null", "null"));

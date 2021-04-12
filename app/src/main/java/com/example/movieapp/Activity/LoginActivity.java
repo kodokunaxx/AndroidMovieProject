@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.movieapp.Database.DBMangager;
 import com.example.movieapp.Model.User;
@@ -59,6 +60,7 @@ public class LoginActivity extends Activity {
                             startActivity(intent);
                             btnLoginLg.stopAnimation(TransitionButton.StopAnimationStyle.SHAKE, null);
                         }else {
+                            Toast.makeText(LoginActivity.this, "Sai tên đăng nhập hoặc mật khẩu!", Toast.LENGTH_SHORT).show();
                             btnLoginLg.stopAnimation(TransitionButton.StopAnimationStyle.SHAKE, null);
                         }
                     }

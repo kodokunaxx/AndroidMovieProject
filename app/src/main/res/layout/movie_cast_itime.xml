@@ -29,6 +29,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="25dp"
-        android:text="hihihohih"
+        android:text="Đỗ Mạnh Hà"
+        android:lines="2"
         android:textColor="#ffff" />
 </RelativeLayout>

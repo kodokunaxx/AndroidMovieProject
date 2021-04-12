@@ -85,11 +85,6 @@ public class HomeFragment extends Fragment {
         for (int i = 0; i<4; i++){
             viewMovieOnRecycle(i);
         }
-        setClickSearch();
-        return view;
-    }
-
-    private void setClickSearch(){
         searchImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,6 +92,12 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        return view;
+    }
+
+    private void setClickSearch(){
+
     }
 
     private void viewBanner() {

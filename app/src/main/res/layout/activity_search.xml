@@ -9,21 +9,23 @@
     tools:context=".Activity.SearchActivity">
     <EditText
         android:textColor="#ffff"
-        android:id="@+id/editextSearch"
+        android:id="@+id/edtSearch"
+        android:imeOptions="actionDone"
         android:textColorHint="#515050"
         android:hint="Nhập tìm kiếm của bạn tại đây"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <Button
-        android:layout_marginTop="30dp"
-        android:id="@+id/btsearch"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnSearch"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Tìm kiếm"
-        android:textAllCaps="false"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/background_button_login"/>
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_animation"
+        android:text="Tìm kiếm"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="false" />
 
     <TextView
         android:layout_marginTop="40dp"
@@ -33,11 +35,13 @@
         android:text="Phim được tìm kiếm"
         android:textColor="#ffff"
         android:textSize="20dp"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclersearch1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numColumns="2"
+        />
 
 
 
