@@ -5,7 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -24,6 +26,7 @@ import com.example.movieapp.Json.Json;
 import com.example.movieapp.Model.Cast;
 import com.example.movieapp.Model.Movie;
 import com.example.movieapp.Model.MovieDetail;
+import com.example.movieapp.Model.User;
 import com.example.movieapp.R;
 
 import org.json.JSONException;
@@ -32,13 +35,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MovieDetailActivity extends Activity {
-    ImageView movieDetailImg;
+    ImageView imgMovieHome, movieDetailImg;
     TextView movieDetailTitle, runTime, movieActor, movieCategory, movieEpisode, movieDate, movieOverview;
     Button btnPlay;
+    String url;
     RecyclerView movieCastRecycleView, movieRelatedRecycleView;
     MovieHorizontalRecyclerviewAdapter movieHorizontalRecyclerviewAdapter;
     CastHorizontalRecycleViewAdapter castHorizontalRecycleViewAdapter;
-
     Json json = new Json();
 
 
@@ -49,6 +52,7 @@ public class MovieDetailActivity extends Activity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_movie_detail);
 
+        imgMovieHome =findViewById(R.id.imgMovieHome);
         movieDetailImg = findViewById(R.id.movieDetailImg);
         movieDetailTitle = findViewById(R.id.movieDetailTitle);
         runTime = findViewById(R.id.runTime);
@@ -69,6 +73,31 @@ public class MovieDetailActivity extends Activity {
         setMovieDetail(iIdMovie);
         viewRelatedMovie(iIdMovie);
         viewCastMovie(iIdMovie);
+        this.getUrlMovieTrailer(iIdMovie);
+        setImgHomeOnClick();
+        setPlayOnClick();
+
+    }
+
+    private void setImgHomeOnClick(){
+        imgMovieHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MovieDetailActivity.this,LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void setPlayOnClick(){
+        btnPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MovieDetailActivity.this, PlayMovieActivity.class);
+                intent.putExtra("url", url);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setMovieDetail(int idMovie){
@@ -138,6 +167,29 @@ public class MovieDetailActivity extends Activity {
                             List<Cast> castList = new ArrayList<>();
                             castList = json.JsonCast(response);
                             setCastListHorizontalRecyclerviewAdapter(castList);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        });
+        requestQueue.add(stringRequest);
+    }
+
+    public void getUrlMovieTrailer(int idMovie){
+        RequestQueue requestQueue = Volley.newRequestQueue(MovieDetailActivity.this);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://api.themoviedb.org/3/movie/"+ idMovie +"/videos?api_key=9ed4a1f097a3e78ed51133843d2156ea&language=vi",
+                new Response.Listener<String>() {
+
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            url = json.JsonMovieTrailer(response);
 
                         } catch (JSONException e) {
                             e.printStackTrace();

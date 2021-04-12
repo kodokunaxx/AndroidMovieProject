@@ -5,7 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,7 +34,7 @@ import java.util.List;
 public class CastDetailActivity extends Activity {
 
     TextView castDetailName, castDetailDate, castDetailGender, castDetailPlace, castDetailStory;
-    ImageView castDetailProfile;
+    ImageView imgCastHome,castDetailProfile;
     RecyclerView castMovieJoin;
     MovieHorizontalRecyclerviewAdapter movieHorizontalRecyclerviewAdapter;
 
@@ -44,6 +46,7 @@ public class CastDetailActivity extends Activity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_cast_detail);
 
+        imgCastHome = findViewById(R.id.imgCastHome);
         castDetailName = findViewById(R.id.castDetailName);
         castDetailDate = findViewById(R.id.castDetailDate);
         castDetailGender = findViewById(R.id.castDetailGender);
@@ -58,7 +61,18 @@ public class CastDetailActivity extends Activity {
         Glide.with(this).load(iProfileImg).into(castDetailProfile);
         setCastDetail(iIdCast);
         viewCastMovieJoin(iIdCast);
+        setImgHomeOnClick();
 
+    }
+
+    private void setImgHomeOnClick(){
+        imgCastHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CastDetailActivity.this,LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setCastDetail(int idCast){

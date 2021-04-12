@@ -6,4 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".Activity.PlayMovieActivity">
 
+
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+
+
+        app:showFullScreenButton="false"
+        android:layout_width="match_parent"
+        android:id="@+id/youtubePlayerView"
+        android:layout_height="match_parent">
+
+    </com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

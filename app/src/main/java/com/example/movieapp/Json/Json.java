@@ -72,6 +72,18 @@ public class Json {
         return  cast;
     }
 
+    public String JsonMovieTrailer(String jsonString) throws JSONException {
+        String url = "";
+        try {
+            JSONObject jsonObject = new JSONObject(jsonString);
+            JSONArray jsonArray = jsonObject.getJSONArray("results");
+            JSONObject obj = jsonArray.getJSONObject(0);
+            url = obj.getString("key");
+        }catch (JSONException e){
+            url = "hyrhIBebZsg";
+        }
+        return url;
+    }
 
 }
 

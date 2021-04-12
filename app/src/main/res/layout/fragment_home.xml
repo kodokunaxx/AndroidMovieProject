@@ -27,12 +27,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="250dp"
-                    android:layout_alignParentBottom="true"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/logo_metflix" />
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="100dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/logo_metflix" />
+                </androidx.cardview.widget.CardView>
 
                 <ImageView
                     android:id="@+id/searchImg"
@@ -59,15 +65,15 @@
                 <Button
 
                     android:id="@+id/purchase"
-                    android:layout_width="70dp"
+                    android:layout_width="90dp"
                     android:layout_height="30dp"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
-                    android:background="@drawable/backgrow_list_item_view"
+                    android:background="@drawable/play_btn_bg"
                     android:padding="1dp"
-                    android:text="Mua gói"
+                    android:text="VIP Member"
                     android:textAllCaps="false"
                     android:textSize="12dp">
 
