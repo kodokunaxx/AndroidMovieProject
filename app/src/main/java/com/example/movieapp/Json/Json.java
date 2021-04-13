@@ -13,6 +13,7 @@ import java.util.List;
 
 public class Json {
 
+    //danh sách phim theo yêu cầu
     public List<Movie> JsonMovie(String jsonMovie) throws JSONException{
         List<Movie> movieList = new ArrayList<>();
         JSONObject jsonMovieObj = new JSONObject(jsonMovie);
@@ -24,6 +25,7 @@ public class Json {
         return movieList;
     }
 
+    //chi tiết phim
     public MovieDetail JsonMovieDetail(String jsonMovieDetail) throws JSONException{
         MovieDetail movieDetail;
         JSONObject jsonMovieObj = new JSONObject(jsonMovieDetail);
@@ -43,6 +45,7 @@ public class Json {
         return  movieDetail;
     }
 
+    //danh sách phim diễn viên đã tham gia
     public List<Movie> JsonCastMovieJoin(String jsonMovie) throws JSONException{
         List<Movie> movieList = new ArrayList<>();
         JSONObject jsonMovieObj = new JSONObject(jsonMovie);
@@ -54,6 +57,7 @@ public class Json {
         return movieList;
     }
 
+    //danh sách dàn diễn viên của phim
     public List<Cast> JsonCast(String jsonCast) throws JSONException{
         List<Cast> castList = new ArrayList<>();
         JSONObject jsonCastObj = new JSONObject(jsonCast);
@@ -65,6 +69,7 @@ public class Json {
         return castList;
     }
 
+    //chi tiết diễn viên
     public Cast JsonCastDetail(String jsonCastDetail) throws JSONException{
         Cast cast;
         JSONObject jsonCastObj = new JSONObject(jsonCastDetail);
@@ -72,6 +77,7 @@ public class Json {
         return  cast;
     }
 
+    //lấy URL video youtube
     public String JsonMovieTrailer(String jsonString) throws JSONException {
         String url = "";
         try {

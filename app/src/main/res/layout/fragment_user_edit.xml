@@ -53,6 +53,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
                     android:text="Sửa thông tin"
+                    android:background="@drawable/button_animation"
                     android:textAllCaps="false" />
 
                 <Button
@@ -62,6 +63,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:text="Đổi mật khẩu"
+                    android:background="@drawable/button_animation"
                     android:textAllCaps="false" />
 
             </LinearLayout>
@@ -78,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="30dp"
-                    android:text="Tên Đăng Nhập"
+                    android:text="Người dùng:"
                     android:textColor="#ffff"
                     android:textSize="15dp" />
 
@@ -89,7 +91,7 @@
                     android:layout_centerVertical="true"
 
                     android:layout_marginRight="30dp"
-                    android:text="Hunter999999"
+                    android:text="Chưa có"
                     android:textColor="#ffff"
                     android:textSize="15dp" />
 
@@ -105,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="30dp"
-                    android:text="Tên Đăng Nhập"
+                    android:text="Tuổi:"
                     android:textColor="#ffff"
                     android:textSize="15dp" />
 
@@ -116,35 +118,7 @@
                     android:layout_centerVertical="true"
 
                     android:layout_marginRight="30dp"
-                    android:text="Hunter999999"
-                    android:textColor="#ffff"
-                    android:textSize="15dp" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginTop="15dp"
-                android:background="#2E2D2D">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="30dp"
-                    android:text="Tên Đăng Nhập"
-                    android:textColor="#ffff"
-                    android:textSize="15dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-
-                    android:layout_marginRight="30dp"
-                    android:text="Hunter999999"
+                    android:text="Chưa có"
                     android:textColor="#ffff"
                     android:textSize="15dp" />
 
@@ -160,7 +134,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="30dp"
-                    android:text="Tên Đăng Nhập"
+                    android:text="Giới tính:"
                     android:textColor="#ffff"
                     android:textSize="15dp" />
 
@@ -171,7 +145,7 @@
                     android:layout_centerVertical="true"
 
                     android:layout_marginRight="30dp"
-                    android:text="Hunter999999"
+                    android:text="Chưa có"
                     android:textColor="#ffff"
                     android:textSize="15dp" />
 
@@ -187,7 +161,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="30dp"
-                    android:text="Tên Đăng Nhập"
+                    android:text="Email:"
                     android:textColor="#ffff"
                     android:textSize="15dp" />
 
@@ -198,7 +172,7 @@
                     android:layout_centerVertical="true"
 
                     android:layout_marginRight="30dp"
-                    android:text="Hunter999999"
+                    android:text="Chưa có"
                     android:textColor="#ffff"
                     android:textSize="15dp" />
 
@@ -207,7 +181,6 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:layout_marginTop="15dp"
                 android:background="#2E2D2D">
 
                 <TextView
@@ -215,7 +188,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="30dp"
-                    android:text="Tên Đăng Nhập"
+                    android:text="Địa chỉ:"
                     android:textColor="#ffff"
                     android:textSize="15dp" />
 
@@ -226,7 +199,7 @@
                     android:layout_centerVertical="true"
 
                     android:layout_marginRight="30dp"
-                    android:text="Hunter999999"
+                    android:text="Chưa có"
                     android:textColor="#ffff"
                     android:textSize="15dp" />
 

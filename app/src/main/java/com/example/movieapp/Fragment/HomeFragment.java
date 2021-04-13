@@ -126,7 +126,6 @@ public class HomeFragment extends Fragment {
         });
         requestQueue.add(stringRequest);
 
-
     }
 
     private void viewMovieOnRecycle(int temp) {
