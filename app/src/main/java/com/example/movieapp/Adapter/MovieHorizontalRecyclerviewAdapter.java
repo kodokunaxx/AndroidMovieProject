@@ -45,7 +45,9 @@ public class MovieHorizontalRecyclerviewAdapter extends RecyclerView.Adapter<Mov
                 Intent intent = null ;
                 intent= new Intent(context, MovieDetailActivity.class);
                 intent.putExtra("id",movieList.get(position).getId());
+                intent.putExtra("poster",movieList.get(position).getPoster());
                 intent.putExtra("backdrop",movieList.get(position).getBackdrop());
+                intent.putExtra("title",movieList.get(position).getTitle());
 
                 context.startActivity(intent);
             }

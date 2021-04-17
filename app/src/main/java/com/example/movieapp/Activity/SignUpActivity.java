@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -50,7 +51,11 @@ public class SignUpActivity extends Activity {
             public void onClick(View v) {
                 Random random = new Random();
                 int id = random.nextInt(1000);
-                if(!edtPasswordSU.getText().toString().equals(edtRePasswordSU.getText().toString())) {
+                if(TextUtils.isEmpty(edtNameSU.getText().toString()) && TextUtils.isEmpty(edtPasswordSU.getText().toString())){
+                    Toast.makeText(SignUpActivity.this, "Không để trống tên đăng nhập hoặc mật khẩu!", Toast.LENGTH_SHORT).show();
+                    status = false;
+                }
+                else if(!edtPasswordSU.getText().toString().equals(edtRePasswordSU.getText().toString())) {
                     Toast.makeText(SignUpActivity.this, "Hãy xác thực lại mật khẩu!", Toast.LENGTH_SHORT).show();
                     status = false;
                 }else if(cbCheckSU.isChecked() == false){

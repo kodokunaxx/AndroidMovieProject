@@ -34,7 +34,7 @@ import java.util.List;
 public class CastDetailActivity extends Activity {
 
     TextView castDetailName, castDetailDate, castDetailGender, castDetailPlace, castDetailStory;
-    ImageView imgCastHome,castDetailProfile;
+    ImageView imgCastHome,castDetailProfile, searchImgCastDetail;
     RecyclerView castMovieJoin;
     MovieHorizontalRecyclerviewAdapter movieHorizontalRecyclerviewAdapter;
 
@@ -54,6 +54,7 @@ public class CastDetailActivity extends Activity {
         castDetailStory = findViewById(R.id.castDetailStory);
         castDetailProfile = findViewById(R.id.castDetailProfile);
         castMovieJoin = findViewById(R.id.castMovieJoin);
+        searchImgCastDetail = findViewById(R.id.searchImgCastDetail);
 
         int iIdCast = getIntent().getExtras().getInt("id");
         String iProfileImg = getIntent().getExtras().getString("profileImg");
@@ -62,6 +63,13 @@ public class CastDetailActivity extends Activity {
         setCastDetail(iIdCast);
         viewCastMovieJoin(iIdCast);
         setImgHomeOnClick();
+        searchImgCastDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CastDetailActivity.this, SearchActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -69,7 +77,7 @@ public class CastDetailActivity extends Activity {
         imgCastHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CastDetailActivity.this,LoginActivity.class);
+                Intent intent = new Intent(CastDetailActivity.this,MainActivity.class);
                 startActivity(intent);
             }
         });

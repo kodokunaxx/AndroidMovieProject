@@ -34,7 +34,7 @@
             </androidx.cardview.widget.CardView>
 
             <ImageView
-                android:id="@+id/searchImg"
+                android:id="@+id/searchImgCastDetail"
                 android:layout_width="25dp"
                 android:layout_height="30dp"
                 android:layout_alignParentBottom="true"

@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -19,7 +21,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.movieapp.Adapter.SearchGridViewAdapter;
+import com.example.movieapp.Database.DBMangager;
 import com.example.movieapp.Json.Json;
+import com.example.movieapp.Model.HistorySearch;
 import com.example.movieapp.Model.Movie;
 import com.example.movieapp.Model.MovieDetail;
 import com.example.movieapp.R;
@@ -28,11 +32,13 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class SearchActivity extends Activity {
-    EditText edtSearch;
+    AutoCompleteTextView edtSearch;
     Button btnSearch;
     GridView gridView;
+    DBMangager dbMangager;
 
     SearchGridViewAdapter searchGridViewAdapter;
     Json json = new Json();
@@ -45,6 +51,15 @@ public class SearchActivity extends Activity {
         edtSearch = findViewById(R.id.edtSearch);
         btnSearch = findViewById(R.id.btnSearch);
         gridView = findViewById(R.id.gridView);
+        dbMangager = new DBMangager(SearchActivity.this);
+        int size = dbMangager.getAllKeyword().size();
+
+
+        String[] str = new String[size - 1];
+        for (int i = 0; i< size; i++){
+            str[i] = dbMangager.getAllKeyword().get(i).getKeyword();
+        }
+        edtSearch.setAdapter(new ArrayAdapter<>(SearchActivity.this,R.layout.support_simple_spinner_dropdown_item, str));
 
         setSearchClick();
     }
@@ -54,13 +69,16 @@ public class SearchActivity extends Activity {
             @Override
             public void onClick(View v) {
                 searchMovie(edtSearch.getText().toString());
+
+                Random random = new Random();
+                int id = random.nextInt(10000);
+                dbMangager.addHistorySearch(new HistorySearch(id, edtSearch.getText().toString()));
             }
         });
     }
 
     private void searchMovie(String keyword){
         RequestQueue requestQueue = Volley.newRequestQueue(SearchActivity.this);
-
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://api.themoviedb.org/3/search/movie?api_key=9ed4a1f097a3e78ed51133843d2156ea&language=en-Us&query=" + keyword + "",
                 new Response.Listener<String>() {

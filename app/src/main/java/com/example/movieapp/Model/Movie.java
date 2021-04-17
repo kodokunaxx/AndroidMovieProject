@@ -8,7 +8,8 @@ public class Movie implements Serializable {
     String poster;
     String backdrop;
     String title;
-    List<MovieDetail> movieDetailList;
+    int userId;
+
 
     public Movie() {
     }
@@ -18,6 +19,14 @@ public class Movie implements Serializable {
         this.poster = poster;
         this.backdrop = backdrop;
         this.title = title;
+    }
+
+    public Movie(int id, String poster, String backdrop, String title, int userId) {
+        this.id = id;
+        this.poster = poster;
+        this.backdrop = backdrop;
+        this.title = title;
+        this.userId = userId;
     }
 
     public String getBackdrop() {
@@ -52,11 +61,7 @@ public class Movie implements Serializable {
         this.title = title;
     }
 
-    public List<MovieDetail> getMovieDetailList() {
-        return movieDetailList;
-    }
+    public int getUserId() { return userId; }
 
-    public void setMovieDetailList(List<MovieDetail> movieDetailList) {
-        this.movieDetailList = movieDetailList;
-    }
+    public void setUserId(int userId) { this.userId = userId; }
 }

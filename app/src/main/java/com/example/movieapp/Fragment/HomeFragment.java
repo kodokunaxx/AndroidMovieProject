@@ -46,7 +46,6 @@ public class HomeFragment extends Fragment {
     MovieHorizontalRecyclerviewAdapter movieHorizontalRecyclerviewAdapter;
 
     View view;
-    List<Movie> movieList;
     Json json = new Json();
 
     public HomeFragment() {
@@ -79,7 +78,6 @@ public class HomeFragment extends Fragment {
         nestedScrollView =view.findViewById(R.id.nestedScroll);
         searchImg =view.findViewById(R.id.searchImg);
         notification =view.findViewById(R.id.notification);
-
         this.setrefresh();
         viewBanner();
         for (int i = 0; i<4; i++){
@@ -96,14 +94,11 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-    private void setClickSearch(){
-
-    }
 
     private void viewBanner() {
         RequestQueue requestQueue = Volley.newRequestQueue(view.getContext());
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://api.themoviedb.org/3/movie/791373/similar?api_key=9ed4a1f097a3e78ed51133843d2156ea&language=vi&page=1",
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://api.themoviedb.org/3/movie/412656/similar?api_key=9ed4a1f097a3e78ed51133843d2156ea&language=vi&page=1",
                 new Response.Listener<String>() {
 
                     @Override

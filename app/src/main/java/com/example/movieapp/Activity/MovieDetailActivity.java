@@ -3,15 +3,19 @@ package com.example.movieapp.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -22,6 +26,7 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.movieapp.Adapter.CastHorizontalRecycleViewAdapter;
 import com.example.movieapp.Adapter.MovieHorizontalRecyclerviewAdapter;
+import com.example.movieapp.Database.DBMangager;
 import com.example.movieapp.Json.Json;
 import com.example.movieapp.Model.Cast;
 import com.example.movieapp.Model.Movie;
@@ -33,9 +38,13 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class MovieDetailActivity extends Activity {
-    ImageView imgMovieHome, movieDetailImg;
+    public static final String SHARED_PREFS = "shared_prefs";
+    public static final String USER_ID = "user_id";
+    SharedPreferences sharedpreferences;
+    ImageView imgMovieHome, movieDetailImg, searchImgMovieDetail, imgLove;
     TextView movieDetailTitle, runTime, movieActor, movieCategory, movieEpisode, movieDate, movieOverview;
     Button btnPlay;
     String url;
@@ -43,6 +52,8 @@ public class MovieDetailActivity extends Activity {
     MovieHorizontalRecyclerviewAdapter movieHorizontalRecyclerviewAdapter;
     CastHorizontalRecycleViewAdapter castHorizontalRecycleViewAdapter;
     Json json = new Json();
+    DBMangager dbMangager;
+    boolean status;
 
 
 
@@ -64,10 +75,19 @@ public class MovieDetailActivity extends Activity {
         btnPlay = findViewById(R.id.btnPlay);
         movieCastRecycleView = findViewById(R.id.movieCastRecycleView);
         movieRelatedRecycleView = findViewById(R.id.movieRelatedRecycleView);
+        searchImgMovieDetail = findViewById(R.id.searchImgMovieDetail);
+        imgLove = findViewById(R.id.imgLove);
+        dbMangager = new DBMangager(MovieDetailActivity.this);
+
+        sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
 
         //lấy dữ liệu từ Intent
         int iIdMovie = getIntent().getExtras().getInt("id");
+        String iPoster = getIntent().getExtras().getString("poster");
         String iBackdrop = getIntent().getExtras().getString("backdrop");
+        String iTitle = getIntent().getExtras().getString("title");
+        int idUser = sharedpreferences.getInt(USER_ID, 0);
+        status = dbMangager.checkLove(idUser,iIdMovie);
 
         Glide.with(this).load(iBackdrop).into(movieDetailImg);
         setMovieDetail(iIdMovie);
@@ -75,24 +95,66 @@ public class MovieDetailActivity extends Activity {
         viewCastMovie(iIdMovie);
         this.getUrlMovieTrailer(iIdMovie);
         setImgHomeOnClick();
-        setPlayOnClick();
+        setPlayOnClick(iIdMovie,iPoster,iBackdrop,iTitle, idUser);
+        setSearchImgMovieDetail();
+        setLoveStatus();
+        setLoveOnClick(iIdMovie,iPoster,iBackdrop,iTitle, idUser);
 
+
+    }
+
+    private void setSearchImgMovieDetail(){
+        searchImgMovieDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MovieDetailActivity.this, SearchActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setImgHomeOnClick(){
         imgMovieHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MovieDetailActivity.this,LoginActivity.class);
+
+
+                Intent intent = new Intent(MovieDetailActivity.this,MainActivity.class);
                 startActivity(intent);
             }
         });
     }
 
-    private void setPlayOnClick(){
+//region LoveMovie
+    private void setLoveStatus(){
+        if(status == false){
+            imgLove.setImageResource(R.drawable.like);
+        }else {
+            imgLove.setImageResource(R.drawable.unlike);
+        }
+    }
+
+    private void setLoveOnClick(int idMovie, String poster, String backdrop, String title, int idUser){
+        imgLove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(status == false){
+                    imgLove.setImageResource(R.drawable.unlike);
+                    dbMangager.addLoveMovie(new Movie(idMovie, poster, backdrop, title, idUser));
+                }else {
+                    imgLove.setImageResource(R.drawable.like);
+                    dbMangager.deleteLove(idUser, idMovie);
+                }
+            }
+        });
+    }
+//endregion
+
+    private void setPlayOnClick(int idMovie, String poster, String backdrop, String title, int idUser){
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dbMangager.addViewMovie(new Movie(idMovie, poster, backdrop, title, idUser));
                 Intent intent = new Intent(MovieDetailActivity.this, PlayMovieActivity.class);
                 intent.putExtra("url", url);
                 startActivity(intent);
@@ -102,15 +164,19 @@ public class MovieDetailActivity extends Activity {
 
     private void setMovieDetail(int idMovie){
         RequestQueue requestQueue = Volley.newRequestQueue(MovieDetailActivity.this);
+        String actor[] = {"James Francis Cameron", "Michael Bay", "Christopher Nolan", "Quentin Jerome Tarantino", "Clint Eastwood Jr.", "Steven Allan Spielberg", "Heywood Woody Allen", "Frank Russell Capra", "Anh em Joe và Anthony Russo", "Peter Jackson"};
+        Random random = new Random();
         StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://api.themoviedb.org/3/movie/" + idMovie + "?api_key=9ed4a1f097a3e78ed51133843d2156ea&language=vi",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         MovieDetail movieDetail = new MovieDetail();
                         try {
+                            int randomIndex = random.nextInt(actor.length);
                             movieDetail = json.JsonMovieDetail(response);
                             movieDetailTitle.setText(movieDetail.getTitle());
                             runTime.setText(movieDetail.getRuntime());
+                            movieActor.setText(actor[randomIndex]);
                             movieCategory.setText(movieDetail.getTagline());
                             movieEpisode.setText(movieDetail.getEpisode_number());
                             movieDate.setText(movieDetail.getRelease_date());

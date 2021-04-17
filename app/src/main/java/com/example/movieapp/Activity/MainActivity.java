@@ -8,7 +8,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
+import com.example.movieapp.Fragment.CategoryFragment;
 import com.example.movieapp.Fragment.HomeFragment;
+import com.example.movieapp.Fragment.LoveFragment;
+import com.example.movieapp.Fragment.MoreFragment;
 import com.example.movieapp.Model.User;
 import com.example.movieapp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -16,23 +19,21 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity implements Serializable {
+
     BottomNavigationView bottomNavigationView;
-    User user = new User();
-    Bundle bundle = new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.ALPHA_CHANGED, WindowManager.LayoutParams.ALPHA_CHANGED); // full screen
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
+        //set start fragment
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new HomeFragment()).commit();
-        user= (User) getIntent().getExtras().getSerializable("UserObj");
-        bundle.putSerializable("User", user);
+
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener= new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -42,6 +43,15 @@ public class MainActivity extends AppCompatActivity implements Serializable {
             switch (item.getItemId()){
                 case R.id.homeItem:
                     fragment =new HomeFragment();
+                    break;
+                case R.id.categoryItem:
+                    fragment =new CategoryFragment();
+                    break;
+                case R.id.loveItem:
+                    fragment =new LoveFragment();
+                    break;
+                case R.id.moreItem:
+                    fragment =new MoreFragment();
                     break;
                 default:
             }

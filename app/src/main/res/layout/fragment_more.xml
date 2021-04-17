@@ -3,237 +3,211 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="#141516"
     android:orientation="vertical">
 
-    <ScrollView
-        android:background="#141516"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        <androidx.cardview.widget.CardView
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            app:cardCornerRadius="400dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/avatar" />
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/nameUsertv"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
-            <androidx.cardview.widget.CardView
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="40dp"
-                app:cardCornerRadius="400dp">
-
-                <ImageView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/avatar" />
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:id="@+id/nameUsertv"
+            android:layout_gravity="center"
+            android:text="Đỗ Mạnh Hà"
+            android:textColor="#Ffff"
+            android:textSize="30dp" />
+        <TextView
+            android:id="@+id/gmailUsertv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="haproadg@gmail.com"
+            android:textColor="#ffff" />
+        <Button
+            android:id="@+id/btnEditUsertv"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_animation"
+            android:text="Chinh Sửa"
+            android:textColor="#ffff"
+            android:textAllCaps="false" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/backgrow_selection">
+            <ImageView
+                android:layout_marginLeft="20dp"
+                android:id="@+id/image1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Đỗ Mạnh Hà"
-                android:textColor="#Ffff"
-                android:textSize="30dp" />
-
+                android:layout_centerVertical="true"
+                android:src="@drawable/language" />
             <TextView
-                android:id="@+id/gmailUsertv"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/image1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="haproadg@gmail.com"
-                android:textColor="#ffff" />
-
-            <Button
-                android:id="@+id/editusetbt"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/button_animation"
-                android:text="Chinh Sửa"
+                android:layout_centerVertical="true"
+                android:text="Ngôn Ngữ"
                 android:textColor="#ffff"
-                android:textAllCaps="false" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:textSize="20dp" />
+            <ImageView
+                android:layout_marginRight="20dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_baseline_play_arrow_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rltHistorySearch"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/backgrow_selection">
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/searchhistory" />
+            <TextView
+                android:id="@+id/txtHistorySearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/backgrow_selection">
-
-                <ImageView
-                    android:layout_marginLeft="20dp"
-                    android:id="@+id/image1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/language" />
-
-                <TextView
-                    android:layout_marginLeft="30dp"
-                    android:layout_toRightOf="@+id/image1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="Ngôn Ngữ"
-                    android:textColor="#ffff"
-                    android:textSize="20dp" />
-
-                <ImageView
-                    android:layout_marginRight="20dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_baseline_play_arrow_24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_toRightOf="@+id/image2"
+                android:text="Lịch sử tìm kiếm"
+                android:textColor="#ffff"
+                android:textSize="20dp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/ic_baseline_play_arrow_24" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rltHistoryView"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/backgrow_selection">
+            <ImageView
+                android:layout_marginLeft="20dp"
+                android:id="@+id/image3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/scroll" />
+            <TextView
+                android:id="@+id/txtHistoryView"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/backgrow_selection">
-
-                <ImageView
-                    android:layout_marginLeft="20dp"
-                    android:id="@+id/image2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/searchhistory" />
-
-                <TextView
-                    android:layout_marginLeft="30dp"
-                    android:layout_toRightOf="@+id/image2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="Lịch sử tìm kiếm"
-                    android:textColor="#ffff"
-                    android:textSize="20dp" />
-
-                <ImageView
-                    android:layout_marginRight="20dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_baseline_play_arrow_24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_toRightOf="@+id/image3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="Lịch sử xem"
+                android:textColor="#ffff"
+                android:textSize="20dp" />
+            <ImageView
+                android:layout_marginRight="20dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_baseline_play_arrow_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/backgrow_selection">
+            <ImageView
+                android:layout_marginLeft="20dp"
+                android:id="@+id/image4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/setting" />
+            <TextView
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/backgrow_selection">
-
-                <ImageView
-                    android:layout_marginLeft="20dp"
-                    android:id="@+id/image3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/scroll" />
-
-                <TextView
-                    android:layout_marginLeft="30dp"
-                    android:layout_toRightOf="@+id/image3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="Lịch sử xem"
-                    android:textColor="#ffff"
-                    android:textSize="20dp" />
-
-                <ImageView
-                    android:layout_marginRight="20dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_baseline_play_arrow_24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_toRightOf="@+id/image4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="Cài đặt"
+                android:textColor="#ffff"
+                android:textSize="20dp" />
+            <ImageView
+                android:layout_marginRight="20dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_baseline_play_arrow_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rltLogOut"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/backgrow_selection">
+            <ImageView
+                android:layout_marginLeft="20dp"
+                android:id="@+id/image5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/exit" />
+            <TextView
+                android:id="@+id/txtLogOut"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/backgrow_selection">
-
-                <ImageView
-                    android:layout_marginLeft="20dp"
-                    android:id="@+id/image4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/setting" />
-
-                <TextView
-                    android:layout_marginLeft="30dp"
-                    android:layout_toRightOf="@+id/image4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="Cài đặt"
-                    android:textColor="#ffff"
-                    android:textSize="20dp" />
-
-                <ImageView
-                    android:layout_marginRight="20dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_baseline_play_arrow_24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
-            <RelativeLayout
-                android:id="@+id/log_out"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/backgrow_selection">
-
-                <ImageView
-                    android:layout_marginLeft="20dp"
-                    android:id="@+id/image5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/exit" />
-
-                <TextView
-                    android:layout_marginLeft="30dp"
-                    android:layout_toRightOf="@+id/image5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="Đăng xuất"
-                    android:textColor="#ffff"
-                    android:textSize="20dp" />
-
-                <ImageView
-                    android:layout_marginRight="20dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_baseline_play_arrow_24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
-        </LinearLayout>
-    </ScrollView>
-
-
-
-
+                android:layout_toRightOf="@+id/image5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="Đăng xuất"
+                android:textColor="#ffff"
+                android:textSize="20dp" />
+            <ImageView
+                android:layout_marginRight="20dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_baseline_play_arrow_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>

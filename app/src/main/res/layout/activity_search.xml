@@ -7,7 +7,7 @@
     android:background="#101010"
     android:layout_height="match_parent"
     tools:context=".Activity.SearchActivity">
-    <EditText
+    <AutoCompleteTextView
         android:textColor="#ffff"
         android:id="@+id/edtSearch"
         android:imeOptions="actionDone"

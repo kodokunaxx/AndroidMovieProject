@@ -6,12 +6,12 @@
         android:title="Trang Chủ" />
 
     <item
-        android:id="@+id/moviePageItem"
+        android:id="@+id/categoryItem"
         android:icon="@drawable/movie_icon"
         android:title="Movie" />
 
     <item
-        android:id="@+id/historyItem"
+        android:id="@+id/loveItem"
         android:icon="@drawable/history_white"
         android:title="Đã xem" />
     <item
