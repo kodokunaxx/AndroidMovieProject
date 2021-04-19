@@ -55,7 +55,7 @@ public class SearchActivity extends Activity {
         int size = dbMangager.getAllKeyword().size();
 
 
-        String[] str = new String[size];
+        String[] str = new String[1 + size];
         str[size] = "HaHa";
         for (int i = 0; i< size; i++){
             str[i] = dbMangager.getAllKeyword().get(i).getKeyword();
