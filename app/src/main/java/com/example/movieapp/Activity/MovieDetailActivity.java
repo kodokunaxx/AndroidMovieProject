@@ -141,9 +141,11 @@ public class MovieDetailActivity extends Activity {
                 if(status == false){
                     imgLove.setImageResource(R.drawable.unlike);
                     dbMangager.addLoveMovie(new Movie(idMovie, poster, backdrop, title, idUser));
+                    status = true;
                 }else {
                     imgLove.setImageResource(R.drawable.like);
                     dbMangager.deleteLove(idUser, idMovie);
+                    status = false;
                 }
             }
         });
