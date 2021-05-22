@@ -112,6 +112,9 @@ public class MoreFragment extends Fragment {
         txtLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.clear();
+                editor.apply();
                 Intent intent = new Intent(view.getContext(), SplashScreenActivity.class);
                 startActivity(intent);
             }

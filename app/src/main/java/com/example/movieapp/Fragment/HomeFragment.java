@@ -41,7 +41,6 @@ public class HomeFragment extends Fragment {
     ViewPager bannerViewPager;
     NestedScrollView nestedScrollView;
     ImageView searchImg, notification;
-    SwipeRefreshLayout swipeRefreshLayout;
     RecyclerView recyclerview1, recyclerview2, recyclerview3, recyclerview4;
     MovieHorizontalRecyclerviewAdapter movieHorizontalRecyclerviewAdapter;
 
@@ -78,7 +77,6 @@ public class HomeFragment extends Fragment {
         nestedScrollView =view.findViewById(R.id.nestedScroll);
         searchImg =view.findViewById(R.id.searchImg);
         notification =view.findViewById(R.id.notification);
-        this.setrefresh();
         viewBanner();
         for (int i = 0; i<4; i++){
             viewMovieOnRecycle(i);
@@ -202,16 +200,5 @@ public class HomeFragment extends Fragment {
         recyclerview4.setLayoutManager(layoutManager);
         movieHorizontalRecyclerviewAdapter = new MovieHorizontalRecyclerviewAdapter(view.getContext(), movieListHorizontal);
         recyclerview4.setAdapter(movieHorizontalRecyclerviewAdapter);
-    }
-
-    private void setrefresh() {
-        swipeRefreshLayout = view.findViewById(R.id.swipe_fefresh);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                viewBanner();
-                swipeRefreshLayout.setRefreshing(false);
-            }
-        });
     }
 }

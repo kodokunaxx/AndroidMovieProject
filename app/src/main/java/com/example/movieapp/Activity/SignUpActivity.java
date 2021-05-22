@@ -51,7 +51,7 @@ public class SignUpActivity extends Activity {
             public void onClick(View v) {
                 Random random = new Random();
                 int id = random.nextInt(1000);
-                if(TextUtils.isEmpty(edtNameSU.getText().toString()) && TextUtils.isEmpty(edtPasswordSU.getText().toString())){
+                if(TextUtils.isEmpty(edtUsernameSU.getText().toString()) || TextUtils.isEmpty(edtPasswordSU.getText().toString())){
                     Toast.makeText(SignUpActivity.this, "Không để trống tên đăng nhập hoặc mật khẩu!", Toast.LENGTH_SHORT).show();
                     status = false;
                 }

@@ -37,7 +37,6 @@ public class CategoryFragment extends Fragment {
     RecyclerView recyclerViewCategory1, recyclerViewCategory2, recyclerViewCategory3;
     MovieHorizontalRecyclerviewAdapter movieHorizontalRecyclerviewAdapter;
     ImageView searchImgCategory;
-    SwipeRefreshLayout swipeRefreshLayout;
     Json json = new Json();
     View view;
 
@@ -72,9 +71,6 @@ public class CategoryFragment extends Fragment {
         recyclerViewCategory3 = view.findViewById(R.id.recyclerViewCategory3);
         searchImgCategory = view.findViewById(R.id.searchImgCategory);
 
-
-
-        setrefresh();
         viewMovieCategory(109418);
         viewMovieCategory(19995);
         viewMovieCategory(635302);
@@ -227,14 +223,5 @@ public class CategoryFragment extends Fragment {
         recyclerViewCategory3.setLayoutManager(layoutManager);
         movieHorizontalRecyclerviewAdapter = new MovieHorizontalRecyclerviewAdapter(view.getContext(),movieList);
         recyclerViewCategory3.setAdapter(movieHorizontalRecyclerviewAdapter);
-    }
-    private void setrefresh() {
-        swipeRefreshLayout = view.findViewById(R.id.swipe_fefresh);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                swipeRefreshLayout.setRefreshing(false);
-            }
-        });
     }
 }

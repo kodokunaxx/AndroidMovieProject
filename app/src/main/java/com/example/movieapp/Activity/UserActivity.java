@@ -89,7 +89,7 @@ public class UserActivity extends Activity {
                 String  username = sharedpreferences.getString(USERNAME, "1"),
                         password = sharedpreferences.getString(PASSWORD, "1"),
                         name = txtNameUser.getText().toString(),
-                        email= txtGenderUser.getText().toString(),
+                        email= txtEmailUser.getText().toString(),
                         gender = txtGenderUser.getText().toString(),
                         address = txtAddressUser.getText().toString();
                 int id = sharedpreferences.getInt(USER_ID, 0),
