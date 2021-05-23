@@ -96,8 +96,6 @@ public class LoginActivity extends Activity {
                         if(status == true) {
                             status = false;
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            //intent.putExtra("UserObj", user);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                             startActivity(intent);
                             btnLoginLg.stopAnimation(TransitionButton.StopAnimationStyle.SHAKE, null);
                         }else {

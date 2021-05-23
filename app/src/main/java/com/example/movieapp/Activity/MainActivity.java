@@ -59,4 +59,9 @@ public class MainActivity extends AppCompatActivity implements Serializable {
             return true;
         }
     };
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+    }
 }

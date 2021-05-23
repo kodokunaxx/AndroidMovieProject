@@ -284,4 +284,10 @@ public class MovieDetailActivity extends Activity {
         castHorizontalRecycleViewAdapter = new CastHorizontalRecycleViewAdapter(this, castListHorizontal);
         movieCastRecycleView.setAdapter(castHorizontalRecycleViewAdapter);
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(MovieDetailActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
 }

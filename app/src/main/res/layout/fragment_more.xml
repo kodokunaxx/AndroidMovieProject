@@ -47,37 +47,7 @@
             android:text="Chinh Sửa"
             android:textColor="#ffff"
             android:textAllCaps="false" />
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/backgrow_selection">
-            <ImageView
-                android:layout_marginLeft="20dp"
-                android:id="@+id/image1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:src="@drawable/language" />
-            <TextView
-                android:layout_marginLeft="30dp"
-                android:layout_toRightOf="@+id/image1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:text="Ngôn Ngữ"
-                android:textColor="#ffff"
-                android:textSize="20dp" />
-            <ImageView
-                android:layout_marginRight="20dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/ic_baseline_play_arrow_24"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/rltHistorySearch"
             android:layout_width="match_parent"
@@ -144,37 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/backgrow_selection">
-            <ImageView
-                android:layout_marginLeft="20dp"
-                android:id="@+id/image4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:src="@drawable/setting" />
-            <TextView
-                android:layout_marginLeft="30dp"
-                android:layout_toRightOf="@+id/image4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:text="Cài đặt"
-                android:textColor="#ffff"
-                android:textSize="20dp" />
-            <ImageView
-                android:layout_marginRight="20dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/ic_baseline_play_arrow_24"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/rltLogOut"
             android:layout_width="match_parent"

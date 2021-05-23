@@ -14,7 +14,6 @@ import com.example.movieapp.R;
 
 public class SplashScreenActivity extends Activity {
     public static final String SHARED_PREFS = "shared_prefs";
-    public static final String USER_ID = "user_id";
     public static final String USERNAME = "username";
     SharedPreferences sharedpreferences;
     Handler handler;

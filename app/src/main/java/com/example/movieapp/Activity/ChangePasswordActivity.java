@@ -50,7 +50,7 @@ public class ChangePasswordActivity extends Activity {
         edtNewPassword = findViewById(R.id.edtNewPassword);
         edtReNewPassword = findViewById(R.id.edtReNewPassword);
         btnChange = findViewById(R.id.btnChange);
-
+        txtUserName.setText(sharedpreferences.getString(NAME, "1"));
         setOnClickChange();
     }
 

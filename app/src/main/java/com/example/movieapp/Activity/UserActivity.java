@@ -117,4 +117,9 @@ public class UserActivity extends Activity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(UserActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
 }
