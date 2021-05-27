@@ -13,7 +13,7 @@
     <item
         android:id="@+id/loveItem"
         android:icon="@drawable/history_white"
-        android:title="Đã xem" />
+        android:title="Yêu thích" />
     <item
         android:id="@+id/moreItem"
         android:icon="@drawable/more_white"

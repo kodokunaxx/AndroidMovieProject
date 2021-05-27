@@ -37,7 +37,6 @@ public class SplashScreenActivity extends Activity {
                     intent = new Intent(SplashScreenActivity.this, StartActivity.class);
                     startActivity(intent);
                 }
-
             }
         },3000);
     }
