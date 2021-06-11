@@ -1,6 +1,6 @@
 # AndroidMovieProject
-- Hướng dẫn cài đặt:
-2. clone về như bình thường
-3. chuyển project vào thư mục theo đường dẫn C:\Users\{Your pc}\AndroidStudioProjects
-4. mở android studio và build ^^
+- Project configuration guide:
+2. Clone from my github repos
+3. Move the project to the following path C:\Users\{Your pc}\AndroidStudioProjects
+4. Run Android Studio > Open Project from this path and build ^^
 - note: API 21-30
